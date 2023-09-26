@@ -1,0 +1,2 @@
+dubboProviderTraceId=com.codefans.rpcserver.filter.DubboProviderFilter
+dubboConsumerTraceId=com.codefans.rpcserver.filter.DubboConsumerFilter

@@ -1,0 +1,40 @@
+<Configuration status="ERROR">
+    <Appenders>
+        <RollingFile name="async-logger" filePattern="D:/Logs/springcloud-web_asyncLogger-%d{yyyy-MM-dd}.log" fileName="D:/Logs/springcloud-web_asyncLogger.log" immediateFlush="true">
+            <PatternLayout pattern="[%d{yyyy-MM-dd HH:mm:ss,SSS}] [%t] [%-5p] %l %m%n" />
+            <Policies>
+                <SizeBasedTriggeringPolicy size="5MB"/>
+            </Policies>
+        </RollingFile>
+
+        <!-- 输出控制台日志的配置 -->
+        <Console name="console" target="SYSTEM_OUT">
+            <PatternLayout pattern="[%d{yyyy-MM-dd HH:mm:ss,SSS}] [%t] [%-5p] [%F:%L] %m%n"/>
+        </Console>
+
+    </Appenders>
+
+    <Loggers>
+        <AsyncLogger name="com.codefans"  includeLocation="true" level="INFO" additivity="false">
+            <AppenderRef ref="async-logger" />
+            <AppenderRef ref="console" />
+        </AsyncLogger>
+<!--        <AsyncLogger name="com.alibaba.nacos" includeLocation="true" level="DEBUG" additivity="false">-->
+<!--            <AppenderRef ref="async-logger" />-->
+<!--            <AppenderRef ref="console" />-->
+<!--        </AsyncLogger>-->
+
+<!--        <Root level="DEBUG" includeLocation="true">-->
+<!--            <AppenderRef ref="async-logger" />-->
+<!--            <AppenderRef ref="console" />-->
+<!--        </Root>-->
+
+    </Loggers>
+
+<!--    <root>-->
+<!--        <priority value="debug" />-->
+<!--        <AppenderRef ref="async-logger" />-->
+<!--        <AppenderRef ref="console" />-->
+<!--    </root>-->
+
+</Configuration>
